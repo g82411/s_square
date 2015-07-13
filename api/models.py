@@ -9,6 +9,7 @@ class User(models.Model):
 class Box(models.Model):
     bid = models.AutoField(primary_key=True)
     level = models.IntegerField()
+    mid = models.ForeignKey("Monster")
     owner = models.ForeignKey("User")
 
 class Party(models.Model):
@@ -18,6 +19,13 @@ class Party(models.Model):
     thi = models.ForeignKey("Box",related_name="third")
     fou = models.ForeignKey("Box",related_name="fourth")
 
+class Position(models.Model):
+    uid = models.ForeignKey("User")
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    time = models.DateField(auto_now=True)
+    
+    
 class Monster(models.Model):
     mid = models.AutoField(primary_key=True)
     mname = models.CharField(max_length=128)
