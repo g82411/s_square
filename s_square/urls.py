@@ -19,5 +19,6 @@ from api import views
 urlpatterns = [
     #url(r'^admin/', include(admin.site.urls)),
     url(r"^user/login",views.userlogin),
-    url(r"^user/add",views.useradd)
+    url(r"^user/add",views.useradd),
+    url(r"^api/monster",views.getMonster),
 ]
